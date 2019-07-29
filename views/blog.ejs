@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>The News Of The World</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  </head>
+  <body>
+    <form  action="/search" method="post">
+      <label for="">Search</label>
+      <input type="text" name="search" value="">
+      <button type="submit" class="btn btn-dark" name="button">search</button>
+    </form>
+    <%array.forEach(function(e){%>
+      <div class="card">
+  <div class="card-header">
+    <%=e.username%>
+  </div>
+  <div class="card-body">
+
+    <p class="card-text"><%=e.blog%></p>
+    <%=e.link%>
+  <a href="/delete/<%=e._id%>" class="btn btn-outline-danger">Delete commit</a>
+  </div>
+</div>
+    <%});%>
+    <%if(isAuth){%>
+<a href="/compose/<%=user%>">Add a comment</a>
+<a href="/logout">Logout</a>
+<%}%>
+  </body>
+</html>
